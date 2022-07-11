@@ -25,6 +25,9 @@
        undefined
        ull 객체
       */
+      /*
+     자료형 확인 - typeof
+     */
       console.log(
         typeof a, //number
         typeof b, //string
@@ -40,6 +43,23 @@
         _this,
         typeof _this, //객체
         _this.document //객체 프로퍼티확인
+      );
+
+      /*참 거짓 판별 - Boolean*/
+      let TA = 0;
+      let TB = "";
+      let TC = false;
+      let TD = !false;
+      let TE = null;
+      let TF = undefined;
+
+      console.log(
+        Boolean(TA), //false
+        Boolean(TB), //false
+        Boolean(TC), //false
+        Boolean(TD), //true
+        Boolean(TE), //false
+        Boolean(TF) //false
       );
     </script>
   </body>
