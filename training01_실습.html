@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수 실습</title>
+  </head>
+  <body>
+    <div id="box">I'm box!</div>
+    <script>
+      const box = document.getElementById("box");
+      console.log(box, typeof box); //객체다!
+
+      const text_change = function () {
+        //const에는 함수를 담을 수 있음
+        this.innerHTML = "박스이름 바꿔!";
+        //box.innerHTML = "박스이름 바꿔!";
+      };
+      box.addEventListener("click", text_change); //클릭이라는 이벤트를 추가(addEventListener)
+      //변수.이벤트추가('이벤트명',함수)
+    </script>
+  </body>
+</html>
