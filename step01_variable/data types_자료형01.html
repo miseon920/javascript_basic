@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자료형 01</title>
+  </head>
+  <body>
+    <div id="box">박스</div>
+    <script>
+      let a = 1;
+      let b = "1";
+      let c = "true";
+      let d = true;
+      let e;
+      let f = null;
+      console.log(a, b, c, d, e, f);
+      /*
+      1.각변수들의 자료형 확인
+      2.
+       숫자 number
+       문자 string
+       참/거짓 boolean
+       undefined
+       ull 객체
+      */
+      console.log(
+        typeof a, //number
+        typeof b, //string
+        typeof c, //string
+        typeof d, //boolean
+        typeof e, //undefined 변수는 존재하나, 어떠한 값으로도 할당되지 않아 자료형
+        typeof f //object - null은 객체! 변수는 존재하나, null 로 (값이) 할당된 상태. 즉 null은 자료형이 정해진(defined) 상태
+      );
+      let _this = this;
+      console.log(_this);
+      console.log(
+        _this,
+        typeof _this, //객체
+        _this.document //객체 프로퍼티확인
+      );
+    </script>
+  </body>
+</html>
