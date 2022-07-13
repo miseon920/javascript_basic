@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if문 02 / 다중 if문</title>
+  </head>
+  <body>
+    <div id="txt"></div>
+    <input
+      id="input"
+      type="text"
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+    />
+    <button id="btn" type="button">click</button>
+    <script>
+      btn.addEventListener("click", function () {
+        //console.log("zzzz", input.value);
+
+        let age = input.value;
+        let age_real = Math.sign(age);
+
+        /*
+      Math.sign [음수양수 확인법]
+      음수일때 -1반환
+      */
+
+        //console.log(age);
+        //console.log(age_real);
+        //console.log(typeof age);
+
+        if (age_real == -1) {
+          txt.innerText = `나이는 0 보다 커야합니다.`;
+        } else if (age_real != -1 && age < 10) {
+          txt.innerText = `출입금지`;
+        } else if (age >= 10 && age <= 20) {
+          txt.innerText = `가능`;
+        } else if (age > 20 && age < 40) {
+          txt.innerText = `불가능`;
+        } else {
+          //age==40이면서 age > 40
+          txt.innerText = `경고!`;
+        }
+      });
+    </script>
+  </body>
+</html>

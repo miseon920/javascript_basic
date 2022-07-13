@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자 이용 스위치 만들기</title>
+    <style>
+      .switch.on {
+        color: #f00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="switch">toggle class</div>
+    <button id="btn">CLICK</button>
+    <script>
+      let a = true;
+      // 아이디는 자체 이름만으로 선택 가능하지만 추천하는 방식이 아님...
+      // toggle class 구현. 사실 classList.toggle 로 쉽게할 수 있음.
+      // classList.add , classList.remove, classList.toggle , classList.contain
+      btn.onclick = function () {
+        a
+          ? this.previousElementSibling.classList.add("on")
+          : this.previousElementSibling.classList.remove("on");
+        a = !a;
+      };
+    </script>
+  </body>
+</html>

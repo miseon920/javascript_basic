@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if문 01</title>
+  </head>
+  <body>
+    <div id="txt"></div>
+    <script>
+      //let age = 10;
+      let age = 20;
+      if (age > 9) {
+        console.log("입장가능");
+      } else {
+        console.log("불가능");
+      }
+
+      //논리연산자를 사용한 조건부 실행
+      age > 9 && console.log("입장가능");
+
+      //삼항연산자를 이용한 조건부 실행
+      age > 9 ? console.log("입장가능") : console.log("불가능");
+
+      //const txt = document.getElementById("txt");
+      txt.innerText = "이츠미"; //id라서 위의 변수가 생략가능
+      //console.log(txt);
+      txt.innerText = "이츠미" + +age + "살";
+      txt.innerText = `이츠미 ${age}살`;
+      //``안에 쓸때경우 그대로 찍히므로 변수를 ${변수} 로 기입가능
+      txt.innerText = `이츠미 ${age}
+      살`;
+      // ``안에 쓸경우 엔터로 쓰면 그대로 찍힘
+      txt.innerText = "이츠미\n" + age; //\n은 엔터기능!
+    </script>
+  </body>
+</html>
