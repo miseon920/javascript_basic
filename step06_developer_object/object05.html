@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    객체 비구조 할당... 함수로 전달하기를 배울꺼임...
+    <script>
+        const superman = {
+            name: '슈퍼맨',
+            product: '과자',
+            action() {
+                return `슈퍼에서 ${this.product}를 배달하는 ${this.name}`
+            }
+        }
+        //superman.action();
+        console.log(superman.action());
+
+        // 함수에 객체 전달하기
+
+        function doit(a) {
+            console.log(a)
+            console.log(a.name)
+            console.log(a.action());
+        }
+
+        doit(superman);
+
+        // 함수에 구조분해할당하기 1
+
+        function doit2(a) {
+            const { name, product, action } = a;
+            console.log(a)
+            console.log(name)
+            console.log(a.action());
+        }
+
+        doit2(superman);
+
+
+        // 함수에 구조분해할당하기 2
+
+        function doit3({ name, product, action }) {
+            console.log(name);
+            console.log(action());// undefined why????
+            console.log(superman.action())
+        }
+
+        doit3(superman);
+
+    </script>
+</body>
+
+</html>

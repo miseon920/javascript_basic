@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 04</title>
+</head>
+
+<body>
+
+    <script>
+
+        //콜백함수 -> 함수의 매개변수로 들어가는 함수...
+
+        function 일번() { console.log(1); }
+        function 이번() { console.log(2); }
+        function 삼번() { console.log(3); }
+
+
+        //콜백 함수 
+        function 콜백(cb) {
+            cb();
+        }
+        콜백(일번);
+
+
+        // 일반적인 함수 연속...
+
+        function 나오기() {
+            console.log(3)
+            function a() {
+                console.log(2);
+                function b() {
+                    console.log(1)
+                }
+                b();
+            };
+            a();
+        }
+
+        나오기();
+
+
+
+        // 콜백함수를 사용한 콜백지옥
+        function haha(n, cb) {
+            cb();
+            function a(cb) {
+                cb();
+                function b(cb) {
+                    cb();
+                }
+                b(일번);
+            }
+            a(이번);
+
+        }
+        haha(1, 삼번);
+
+        const 더하기 = x => x + 1;
+
+
+        // 콜백함수를 사용한 콜백지옥... 걍 지옥임... 
+        // 나 중에 배울 pramise / async await를 위한 포석... 잘 몰라도 잘 쓸 수 있음.
+        function haha2(n, cb) {
+            let r = cb(n);
+            console.log(r)
+            function a(n) {
+                let r = cb(n);
+                console.log(r);
+                function b(n) {
+                    let r = cb(n);
+                    console.log(r)
+                }
+                b(r);
+            }
+            a(r);
+
+        }
+        haha2(7, 더하기);
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

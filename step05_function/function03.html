@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 03</title>
+</head>
+
+<body>
+    <div id="App">
+        <span>나는 누구? 여긴 어디?</span>
+        <a href="#">변하게 하기</a>
+    </div>
+    <ul id="UL">
+        <li>menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+    </ul>
+    <script>
+
+        // 화살표 함수에서의 this
+
+        const App = document.querySelector('#App');
+        const UL = document.querySelector('#UL');
+
+        // function 이름() {
+        //     console.log('leechanghun')
+        // }
+
+        //$('#App').on('click', function(){
+        //$(this).addClass('on')
+        //$(this).index();
+        //})
+
+        //화살표 함수에서는 this가 없다.
+        App.addEventListener('click', (event) => {
+            console.log(event.target, event.currentTarget);
+            //this.style.color = "#f00";
+        });
+
+        // 이벤트의 위임... 나 중에 배울거임...
+
+        UL.addEventListener('click', e => {
+            // 이벤트의 위임... 이 이밴트를 받고 있는 거는 UL임.
+            let TG = e.target;
+
+            // 스프래드 연산자 어려운 거고 나중에 배울 것들... ECMA6
+            const AllLI = [...UL.children];
+            // 번호 받아오기
+            let idx = AllLI.indexOf(TG);
+            console.log(idx)
+            console.log(AllLI); // click한 것의 번호를 받아옴... 텝메뉴에 쓰일 거임.
+            AllLI.forEach(e => e.style.color = '')
+            TG.style.color = "#f00"
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

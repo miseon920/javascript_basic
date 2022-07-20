@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 02</title>
+</head>
+
+<body>
+    <div id="App">이름쓰기</div>
+
+    <script>
+        const DIV = document.getElementById('App');
+        console.log(DIV);
+
+        //innnrText , innerHTNL, textContent 로 요소에 string을 집어놓거나 추루할 수 있는데 각기 용법이 좀 다르다.
+        const 이름쓰기 = (a) => {
+            DIV.innerText = a;
+        }
+
+        //콜백함수 -> 매개변수로 들어오는 함수.
+        //강사도 잘 모르드라....
+        //이벤트 리스너로 들어오는 콜백함수는 즉시실행된다. 함수로 함번 감싸주고 실행...
+        DIV.addEventListener('click', function () {
+            이름쓰기('kimchanghun');
+        });
+
+        //이름쓰기('kimchanghun');
+
+    </script>
+
+</body>
+
+</html>
