@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 02</title>
+  </head>
+  <body>
+    <script>
+      //배열 순회 표현
+      const array = ["하나", "셋", "다섯", "육", "칠"];
+      //console.log(array.length); //5
+      console.log("※증가");
+      for (i = 0; i < array.length; i++) {
+        //초기값,비교값,증가값
+        console.log(array[i]); //array[i] 값찍기
+      }
+      console.log("※증감");
+      for (i = array.length - 1; i >= 0; i--) {
+        console.log(array[i]);
+      }
+      //for ...in 문 - for문을 간단히 써보자
+      console.log("※for in문");
+      for (i in array) {
+        console.log("[" + i + "] 값은 " + array[i]);
+        //i는 index key 반환
+      }
+      //for ...of 문 - for문을 간단히 써보자
+      console.log("※for of문");
+      for (i of array) {
+        console.log("[" + i + "] 값");
+        //i는 value 반환, array[i]은 undefind
+      }
+    </script>
+  </body>
+</html>
