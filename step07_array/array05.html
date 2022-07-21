@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 05</title>
+  </head>
+  <body>
+    <ul id="UL"></ul>
+    <script>
+      const DATA = [
+        {
+          id: 1,
+          content: "나는 1이다",
+          date: 20220721,
+        },
+        {
+          id: 2,
+          content: "나는 2다",
+          date: 20220721,
+        },
+        {
+          id: 3,
+          content: "나는 3이다",
+          date: 20220721,
+        },
+        {
+          id: 4,
+          content: "나는 4이다",
+          date: 20220721,
+        },
+        {
+          id: 5,
+          content: "나는 5이다",
+          date: 20220721,
+        },
+        {
+          id: 6,
+          content: "나는 6이다",
+          date: 20220721,
+        },
+        {
+          id: 7,
+          content: "나는 7이다",
+          date: 20220721,
+        },
+        {
+          id: 8,
+          content: "나는 8이다",
+          date: 20220721,
+        },
+      ];
+      //map -> 새로운 배열을 생성(나열의 의미)
+
+      const A = DATA.map((data, idx, arry) => console.log(data, idx, arry));
+      console.log(A);
+      const B = DATA.map((data) => {
+        return "<li>" + data.id + "</li>";
+      });
+      console.log(B);
+      const C = DATA.map((data) => {
+        return "<li>" + data.content + "</li>";
+      });
+      console.log(C);
+      const D = DATA.map((data) => `<li>${data.date}</li>`);
+      console.log(D);
+
+      const RESULT = DATA.map((data) => `<li>${data.content}</li>`).join("");
+      console.log(RESULT);
+      //.slice(0, 2)
+      document.querySelector("#UL").innerHTML = RESULT;
+
+      //join() 메서드는 배열의 모든 요소를 연결해 하나의 문자열로 만듭니다.
+      //기본 구분자, 쉼표와 공백, 더하기 기호, 빈 문자열의 네 가지 구분자를 사용해 배열을 연결
+    </script>
+  </body>
+</html>

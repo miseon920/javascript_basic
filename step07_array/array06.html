@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 06</title>
+  </head>
+  <body>
+    <ul id="UL"></ul>
+
+    <script>
+      const DATA = [
+        {
+          id: 1,
+          content: "나는 1이다",
+          date: 20220721,
+        },
+        {
+          id: 2,
+          content: "나는 2다",
+          date: 20220721,
+        },
+        {
+          id: 3,
+          content: "나는 3이다",
+          date: 20220721,
+        },
+        {
+          id: 4,
+          content: "나는 4이다",
+          date: 20220721,
+        },
+        {
+          id: 5,
+          content: "나는 5이다",
+          date: 20220721,
+        },
+        {
+          id: 6,
+          content: "나는 6이다",
+          date: 20220721,
+        },
+        {
+          id: 7,
+          content: "나는 7이다",
+          date: 20220722,
+        },
+        {
+          id: 8,
+          content: "나는 7이다",
+          date: 20220721,
+        },
+      ];
+      //filter -> 조건에 맞는 것만 새로운 배열로 생성
+      //const RESULT = DATA.filter((el) => el.id !== 3);
+      const RESULT = DATA.filter((el) => el.content === "나는 7이다");
+      console.log(RESULT);
+
+      const NEWLIST = RESULT.map(
+        (data) => `<li>${data.content} <small>${data.date}</small></li>`
+      ).join("");
+
+      UL.innerHTML = NEWLIST;
+      //https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array
+    </script>
+  </body>
+</html>
