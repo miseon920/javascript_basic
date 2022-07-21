@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul id="UL"></ul>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const DATA = [
+          { id: 1, content: "나는 메로나다.", date: "2022년 7월 21일" },
+          { id: 2, content: "나는 바밤바다.", date: "2022년 7월 20일" },
+          { id: 3, content: "나는 월드콘다.", date: "2022년 6월 21일" },
+          { id: 4, content: "나는 거북이다.", date: "2022년 7월 12일" },
+          { id: 5, content: "나는 메로나다.", date: "2022년 3월 10일" },
+        ];
+
+        //const RESULT = DATA.filter(el => el.id !== 3);
+
+        let LIST = DATA.map(
+          (data) => `<li>${data.content} <button>삭제</button></li>`
+        ).join("");
+        let RESULT = [];
+        UL.innerHTML = LIST;
+        let LI = document.querySelectorAll("#UL li");
+        LI.forEach((el, idx) => {
+          const BTN = el.querySelector("button");
+          //console.log(BTN);
+          BTN.addEventListener("click", (e) => {
+            console.log(el, idx);
+            UL.removeChild(el);
+            //e.preventDefault();
+            /*RESULT = DATA.filter((el) => el.id !== idx + 1);
+            LIST = RESULT.map(
+              (data) => `<li>${data.content} <button>삭제</button></li>`
+            );
+            UL.innerHTML = LIST.join("");
+            console.log(RESULT, BTN);*/
+          });
+        });
+      });
+      /*
+      const toDoForm = document.getElementById("todo-form");
+const toDoInput = toDoForm.querySelector("input");
+const toDoList = document.getElementById("todo-list");
+let toDos = [];
+const TODOS_KEY = "todos";
+
+function saveToDos(){
+  localStorage.setItem(TODOS_KEY,JSON.stringify(toDos));
+}
+
+function deleteToDo(event) {
+  const li = event.target.parentElement;
+  li.remove();
+  toDos =toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
+}
+
+function paintToDo(newTodo){
+  const li = document.createElement("li");
+  li.id = newTodo.id;
+  const span = document.createElement("span");
+  span.innerText = newTodo.text; 
+  const button = document.createElement("button");
+  button.innerText = 'X';
+  button.addEventListener("click", deleteToDo);
+  li.appendChild(span);
+  li.appendChild(button);
+  toDoList.appendChild(li);
+}
+
+// 만들어진 li 에 고유값붙여주기
+function handleToDoSubmit(event) {
+  event.preventDefault();
+  const newTodo = toDoInput.value;
+  toDoInput.value='';
+  
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
+}
+
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
+  
+const savedToDos =localStorage.getItem(TODOS_KEY);
+
+if (savedToDos !== null){
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
+};
+ 
+      */
+    </script>
+  </body>
+</html>
