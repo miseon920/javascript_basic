@@ -20,25 +20,35 @@
         ];
 
         //const RESULT = DATA.filter(el => el.id !== 3);
-
-        let LIST = DATA.map(
-          (data) => `<li>${data.content} <button>삭제</button></li>`
-        );
+        let LIST = DATA.map((data) => `<li>${data.content}</li>`);
         let RESULT = [];
         UL.innerHTML = LIST.join("");
-        let BTN = document.querySelectorAll("#UL button");
+        let LI = document.querySelectorAll("#UL li");
+        const li_len = LI.length;
+        //console.log(li_len);
+        for (let i = 0; i < li_len; i++) {
+          const btn = document.createElement("button");
+          btn.innerText = "button";
+          console.log(LI[i]);
+          LI[i].appendChild(btn);
+        }
+        //LI.append(btn);
+        let BTN = document.querySelectorAll("#UL li button");
         BTN.forEach((el, idx) => {
           el.addEventListener("click", (e) => {
-            console.log(idx);
             const li = e.target.parentElement;
-            li.remove();
+            console.log(li);
+            //console.log(idx);
+            //li.remove();
             e.preventDefault();
             RESULT = DATA.filter((el) => el.id !== idx + 1);
+            console.log(typeof RESULT);
+            const BTN2 = li.querySelector("button");
             LIST = RESULT.map(
-              (data) => `<li>${data.content} <button>삭제</button></li>`
+              (data) => `<li>${data.content}<button>button</button></li>`
             );
-            let BTN = document.querySelectorAll("#UL button");
-            console.log(RESULT, BTN);
+            UL.innerHTML = LIST.join("");
+            console.log(RESULT, BTN2);
           });
         });
       });

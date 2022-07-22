@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date 내장객체</title>
+  </head>
+  <body>
+    <div class="date"></div>
+    <script>
+      const date = new Date();
+      const week = ["일", "월", "화", "수", "목", "금", "토"];
+
+      //console.log(date);
+      const DATE = document.querySelector(".date");
+      DATE.innerHTML += "날짜 " + date.toLocaleString() + "<br>";
+      DATE.innerHTML += "날짜 " + date.toLocaleDateString() + "<br>";
+      DATE.innerHTML += date.getFullYear() + "년<br>";
+      DATE.innerHTML += date.getMonth() + 1 + "월<br>";
+      //DATE.innerHTML += date.getDay() + "요일<br>";
+      DATE.innerHTML += week[date.getDay()] + "요일<br>";
+    </script>
+  </body>
+</html>
