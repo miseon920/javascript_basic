@@ -43,7 +43,6 @@
             e.preventDefault();
             RESULT = DATA.filter((el) => el.id !== idx + 1);
             console.log(typeof RESULT);
-            const BTN2 = li.querySelector("button");
             LIST = RESULT.map(
               (data) => `<li>${data.content}<button>button</button></li>`
             );
