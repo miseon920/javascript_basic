@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/* h1.on {
+  color: purple;
+} */
+:root {
+  --mc: #071f60;
+  --sc: #666;
+  --mc2: #ffe600;
+}
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+}
+/* .flex img {
+  width: 100%;
+} */
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 17px 0;
+  z-index: 3;
+}
+header h1 a {
+  display: block;
+  font-size: 0;
+}
+header > div {
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul {
+  gap: 30px;
+}
+nav ul li a {
+  display: block;
+  font-size: 18px;
+}
+.visual {
+  position: relative;
+  padding-bottom: 48.398%;
+  overflow: hidden;
+}
+.visual .mainSwiper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.visual figure {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: center bottom;
+}
+.item01 {
+  background: url(../img/visual02.png);
+}
+.item02 {
+  background: url(../img/visual02.png);
+}
+.item03 {
+  background: url(../img/visual02.png);
+}
+.slogan {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--mc);
+}
+.slogan h2 {
+  font-size: 50px;
+  font-weight: 500;
+}
+.slogan ul li:first-child {
+  padding: 25px 0 30px;
+  font-size: 20px;
+}
+.slogan ul li {
+  line-height: 1.2;
+}
+.slogan ul li:last-child {
+  font-size: 18px;
+}
+.slogan ul li:last-child span {
+  display: block;
+}
+section:not(.visual) {
+  padding: 100px 0;
+}
+section .stit {
+  text-align: center;
+  padding-bottom: 30px;
+}
+section .stit h2 {
+  font-size: 40px;
+}
+section .stit h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #000;
+  margin: 15px auto;
+}
+section .stit p {
+  font-size: 16px;
+  color: var(--sc);
+}
+.best_product .tab_box {
+  align-items: center;
+}
+.best_product .tab_box .tab_bt {
+  width: 280px;
+}
+.tab_slide {
+  width: calc(100% - 280px);
+  position: relative;
+}
+.tab_slide > div {
+  display: none;
+}
+.tab_slide > div.on {
+  display: block;
+}
+.tab_slide .swiper-button-next:after,
+.tab_slide .swiper-button-prev:after {
+  display: none;
+}
+.tab_slide .swiper-button-next,
+.tab_slide .swiper-button-prev,
+.real_PSwiper {
+  position: static;
+  margin-top: 0;
+}
+.tab_slide .swiper-button-next i {
+  transform: rotateY(180deg);
+}
+.tab_slide img {
+  max-width: 100%;
+}
+.sl_bt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
