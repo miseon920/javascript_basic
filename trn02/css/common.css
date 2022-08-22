@@ -213,6 +213,7 @@ section.ad_visual .stit {
 section.ad_visual .stit h2 {
   font-size: 50px;
   font-weight: 700;
+  padding-bottom: 30px;
 }
 section.ad_visual .stit h2::after {
   display: none;
@@ -350,9 +351,125 @@ footer .copy {
 }
 
 @media (max-width: 1024px) {
+  header {
+    padding: 10px 0;
+    position: static;
+  }
+  header.on {
+    position: fixed;
+  }
+  header h1 a img {
+    width: 120px;
+  }
   .mbt {
     display: block;
+    position: relative;
+    z-index: 5;
+  }
+  .hamburger {
+    padding: 0;
+  }
+  .hamburger-box,
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 30px;
+  }
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    height: 2px;
+  }
+  nav {
+    position: fixed;
+    width: calc(100% - 100px);
+    height: 100%;
+    background: #fff;
+    top: 0;
+    right: -100%;
+    padding: 50px 30px;
+    transition: 0.5s all;
+    z-index: 3;
+  }
+  nav.on {
+    right: 0;
+  }
+  nav ul {
+    flex-direction: column;
   }
 }
 @media (max-width: 767px) {
+  .visual {
+    padding-bottom: 110%;
+  }
+  section:not(.visual) {
+    padding: 50px 0;
+  }
+  .slogan h2,
+  section .stit h2,
+  section.ad_visual .stit h2 {
+    font-size: 30px;
+  }
+  section .stit p,
+  section.ad_visual .stit p span {
+    font-size: 14px;
+  }
+  .best_product .tab_box {
+    flex-direction: column;
+  }
+  .best_product .tab_box > div {
+    width: 100% !important;
+  }
+  .best_product .tab_box .tab_bt ul {
+    display: flex;
+  }
+  .best_product .tab_box .tab_bt ul li {
+    flex: 1;
+  }
+  .best_product .tab_box .tab_bt ul li a {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .best_product .tab_bt li:nth-child(2) a {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #bfbfbf transparent #bfbfbf transparent;
+  }
+  .tab_slide {
+    padding: 30px 50px;
+  }
+  .tab_slide a strong {
+    padding-top: 15px;
+    font-size: 14px;
+  }
+  .ad_visual {
+    min-height: 350px;
+  }
+  .map_txt {
+    max-width: none;
+    /* display:none; */
+    border-radius: 15px;
+  }
+  .map_txt h3 {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .map_txt strong {
+    font-size: 30px;
+    padding: 20px;
+  }
+  .foot_logo img {
+    width: 120px;
+  }
+  footer .foot_top ul {
+    padding: 15px;
+  }
+  footer .foot_top ul a,
+  footer .foot_bot {
+    font-size: 13px;
+  }
+  footer .foot_logo {
+    padding-bottom: 15px;
+  }
 }
