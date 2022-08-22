@@ -300,11 +300,59 @@ section.ad_visual .stit p span {
   justify-items: center;
   align-items: center;
   padding: 20px;
-  text-align: center;
   line-height: 1.2;
   opacity: 0;
   transition: 0.5s all;
 }
+.sns_review .con_bot a .sns_txt > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  height: 3.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 .sns_review .con_bot a:hover .sns_txt {
   opacity: 1;
+}
+footer .foot_top {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+footer .foot_top ul {
+  gap: 15px;
+  padding: 22px 15px;
+}
+footer .foot_top ul a,
+footer .foot_bot {
+  font-size: 15px;
+}
+footer .foot_bot {
+  padding: 30px 15px 40px;
+}
+footer .foot_logo {
+  padding-bottom: 30px;
+}
+footer ul li {
+  display: inline-block;
+  padding-right: 10px;
+  line-height: 1.2;
+}
+footer ul li:last-child {
+  padding-right: 0;
+}
+footer .copy {
+  padding-top: 15px;
+}
+.mbt {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mbt {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
 }

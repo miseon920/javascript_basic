@@ -93,6 +93,15 @@ window.addEventListener("DOMContentLoaded", () => {
       tab_slide[idx].classList.add("on");
     });
   });
+  var hamburgers = document.querySelector(".hamburger");
+  var nav = document.querySelector("nav");
+  var html = document.querySelector("html");
+
+  hamburgers.addEventListener("click", function () {
+    this.classList.toggle("is-active");
+    nav.classList.toggle("on");
+  });
+
   window.addEventListener("scroll", function () {
     let sct = window.scrollY;
     //console.log(sct);
