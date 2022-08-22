@@ -262,3 +262,49 @@ section.ad_visual .stit p span {
 .sns_review {
   background: url(../img/bg.png) repeat-x 0 / cover;
 }
+.sns_review img {
+  width: 100%;
+}
+.sns_review .con_top {
+  padding-bottom: 30px;
+}
+.sns_review .con_top ul {
+  justify-content: center;
+  gap: 30px;
+}
+.sns_review .con_top ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid #796150;
+  border-radius: 50%;
+}
+.sns_review .con_top ul li a i {
+  font-size: 25px;
+  color: #000;
+}
+.sns_review .con_bot a {
+  display: block;
+  position: relative;
+}
+.sns_review .con_bot a .sns_txt {
+  position: absolute;
+  inset: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.2;
+  opacity: 0;
+  transition: 0.5s all;
+}
+.sns_review .con_bot a:hover .sns_txt {
+  opacity: 1;
+}

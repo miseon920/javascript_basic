@@ -61,6 +61,18 @@ window.addEventListener("DOMContentLoaded", () => {
       prevEl: ".real_PSwiper .swiper-button-prev",
     },
   });
+  const SSwiper = new Swiper(".SSwiper", {
+    slidesPerView: 2,
+    loop: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 6,
+      },
+    },
+  });
 
   const tab_box = document.querySelector(".tab_bt ul");
   const tab_li = [...tab_box.children];
