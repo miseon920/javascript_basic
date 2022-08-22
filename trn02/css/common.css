@@ -28,6 +28,13 @@ header {
   padding: 17px 0;
   z-index: 3;
 }
+header.on {
+  background: #fff;
+  border-bottom: 1px solid #bfbfbf;
+}
+.wc {
+  color: #fff;
+}
 header h1 a {
   display: block;
   font-size: 0;
@@ -116,12 +123,31 @@ section .stit p {
 }
 .best_product .tab_box {
   align-items: center;
+  background: #f5f5f5;
 }
 .best_product .tab_box .tab_bt {
   width: 280px;
 }
+.best_product .tab_bt li a {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  color: var(--sc);
+  border: 1px solid #bfbfbf;
+  background: #fff;
+  padding: 5.4rem 0;
+}
+.best_product .tab_bt li:nth-child(2) a {
+  border-top: 0;
+  border-bottom: 0;
+}
+.best_product .tab_bt li.on a {
+  color: #000;
+  background: var(--mc2);
+}
 .tab_slide {
   width: calc(100% - 280px);
+  padding: 0 60px;
   position: relative;
 }
 .tab_slide > div {
@@ -145,11 +171,94 @@ section .stit p {
 }
 .tab_slide img {
   max-width: 100%;
+  transition: 0.5s all;
+}
+.tab_slide a {
+  display: block;
+}
+.tab_slide a:hover img {
+  transform: scale(1.2);
+}
+.tab_slide a strong {
+  display: block;
+  padding-top: 45px;
+  font-size: 24px;
+  text-align: center;
 }
 .sl_bt {
+  justify-content: space-between;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+.sl_bt > div {
+  width: 30px;
+  height: 30px;
+}
+.sl_bt > div {
+  color: #000;
+  font-size: 20px;
+  border: 1px solid #796150;
+  border-radius: 50%;
+}
+.ad_visual {
+  background: url(../img/con02.png) no-repeat center/cover fixed;
+  min-height: 860px;
+}
+section.ad_visual .stit {
+  text-align: left;
+}
+section.ad_visual .stit h2 {
+  font-size: 50px;
+  font-weight: 700;
+}
+section.ad_visual .stit h2::after {
+  display: none;
+}
+section.ad_visual .stit span {
+  display: block;
+}
+section.ad_visual .stit p span {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.map {
+  max-width: 785px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.map img {
+  max-width: 100%;
+}
+.map_txt {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: center;
+}
+.map_txt h3 {
+  font-weight: 600;
+  font-size: 30px;
+  color: #071f60;
+  padding: 30px 0;
+  background: var(--mc2);
+  border-radius: 25px;
+}
+.map_txt strong {
+  display: block;
+  font-weight: 600;
+  font-size: 50px;
+  padding: 35px 0;
+}
+.sns_review {
+  background: url(../img/bg.png) repeat-x 0 / cover;
 }
