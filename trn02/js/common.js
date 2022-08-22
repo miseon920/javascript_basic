@@ -113,20 +113,30 @@ window.addEventListener("DOMContentLoaded", () => {
   //img map
   //const map_box = document.querySelector("#image_map");
   const map_area = document.querySelectorAll("#image_map area");
-  const map_tit = document.querySelector(".map_txt h3 span");
-  const map_num = document.querySelector(".map_txt strong");
   map_area.forEach((el, idx) => {
     //console.log(el);
     //ele.setAttribute("data-height", imgMax);
     const name = el.getAttribute("data-id");
     const map_name = el.getAttribute("alt");
-    //console.log(name);
-    el.setAttribute("onmouseover", `change_img('./img/${name}.png')`);
-    el.setAttribute("onmouseout", `change_img('./img/map.png')`);
+    const map_num = el.getAttribute("data-num");
+
+    el.setAttribute(
+      "onmouseover",
+      `change_img('${map_name}','./img/${name}.png','${map_num}')`
+    );
+    el.setAttribute(
+      "onmouseout",
+      `change_img('${map_name}','./img/map.png','${map_num}')`
+    );
+    console.log(map_name);
   });
 });
-function change_img(img) {
-  var real_img = document.querySelector(".real_map");
+function change_img(name, img, num) {
+  const real_img = document.querySelector(".real_map");
+  const map_tit = document.querySelector(".map_txt h3 span");
+  const map_num = document.querySelector(".map_txt strong");
   real_img.src = img;
+  map_tit.innerText = name;
+  map_num.innerText = num;
   //console.log(img);
 }
