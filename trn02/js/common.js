@@ -109,4 +109,24 @@ window.addEventListener("DOMContentLoaded", () => {
       ? document.querySelector("header").classList.add("on")
       : document.querySelector("header").classList.remove("on");
   });
+
+  //img map
+  //const map_box = document.querySelector("#image_map");
+  const map_area = document.querySelectorAll("#image_map area");
+  const map_tit = document.querySelector(".map_txt h3 span");
+  const map_num = document.querySelector(".map_txt strong");
+  map_area.forEach((el, idx) => {
+    //console.log(el);
+    //ele.setAttribute("data-height", imgMax);
+    const name = el.getAttribute("data-id");
+    const map_name = el.getAttribute("alt");
+    //console.log(name);
+    el.setAttribute("onmouseover", `change_img('./img/${name}.png')`);
+    el.setAttribute("onmouseout", `change_img('./img/map.png')`);
+  });
 });
+function change_img(img) {
+  var real_img = document.querySelector(".real_map");
+  real_img.src = img;
+  //console.log(img);
+}

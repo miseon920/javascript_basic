@@ -245,6 +245,7 @@ section.ad_visual .stit p span {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   text-align: center;
+  display: none;
 }
 .map_txt h3 {
   font-weight: 600;
@@ -348,6 +349,21 @@ footer .copy {
 }
 .mbt {
   display: none;
+}
+/*이미지맵*/
+img[usemap] {
+  border: none;
+  height: auto;
+  max-width: 100% !important;
+  width: auto;
+}
+@media (max-width: 991px) {
+  img[usemap] {
+    border: none;
+    height: 100% !important;
+    max-width: 100%;
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 1024px) {
