@@ -128,7 +128,15 @@ window.addEventListener("DOMContentLoaded", () => {
       "onmouseout",
       `change_img('${map_name}','./img/map.png','${map_num}')`
     );
-    console.log(map_name);
+    //console.log(map_name);
+  });
+  //$("map").imageMapResize();
+  function win_w() {
+    const win_width = document.documentElement.clientWidth;
+  }
+  win_w();
+  window.addEventListener("resize", function () {
+    win_w();
   });
 });
 function change_img(name, img, num) {
