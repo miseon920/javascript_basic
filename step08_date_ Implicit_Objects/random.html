@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤</title>
+    <style>
+      .trueFalse {
+        width: 327px;
+        height: 218px;
+        background: pink;
+        border-radius: 50%;
+        padding: 100px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="trueFalse"></div>
+    <script>
+      window.onload = function () {
+        //랜덤숫자만들기
+        let random = Math.PI;
+        const won = document.querySelector(".trueFalse");
+        const width = won.clientWidth / 2;
+        const height = won.clientHeight / 2;
+        //const sheight = won.offsetWidth;
+        const area = width * height * random;
+        /*
+        올림(Math.ceil())
+        내림(Math.floor())
+        반올림(Math.round())
+        https://hianna.tistory.com/446
+        */
+        //console.log(Math.round(sheight));
+        won.innerHTML = `<span>${area}</span>`;
+
+        const randomNumber = Math.random();
+        console.log(randomNumber);
+        /*
+        #0 이상 1 미만의 난수 생성하기
+        https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        */
+
+        //1~10까지 무작위 숫자만들기
+        const NUM = Math.floor(randomNumber * 10);
+        console.log(NUM);
+
+        function getRandomIntInclusive(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+        }
+
+        //로또번호
+        const Lotto = getRandomIntInclusive(1, 45);
+        console.log(Lotto);
+
+        //로또번호2
+        const lotto2 = [];
+
+        for (i = 0; i < 6; i++) {
+          let NUM2 = Math.floor(Math.random() * 44) + 1;
+          console.log(`num+${NUM2}`);
+          // lotto2.push(NUM2);
+          for (let j in lotto2) {
+            if (NUM2 == lotto2[j]) {
+              console.log(lotto2[j]);
+              //현재 새로나온 숫자가 기존 숫자와 같으면
+              NUM2 = Math.floor(Math.random() * 44) + 1;
+            }
+          }
+          lotto2.push(NUM2);
+        }
+        console.log(lotto2);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+@charset "utf-8";
+.Header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.gnb {
+  position: fixed;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.gnb ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.gnb li {
+  width: 50px;
+}
+.gnb li a {
+  position: relative;
+  display: block;
+  font-size: 0;
+  height: 15px;
+}
+.gnb li a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 30%;
+  height: 1px;
+  background: #333;
+  transition: 0.5s all;
+}
+.gnb li.on a::after {
+  width: 100%;
+}
+.this_bg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: 0.5s all;
+  background: url(./assets/images/num.png) no-repeat 0 0;
+}
+.this_pic {
+  overflow: hidden;
+}
+/* .this_pic img {
+  transition: 0.5s all; //img는 trnsition이 안돼므로 백그라운드로 넣는다
+} */
+.this_tp {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: 0.5s all;
+  background: url(./assets/images/img01.jpg) no-repeat 0 0 / cover;
+}
+
+.this_page {
+  padding-bottom: 20px;
+  text-align: right;
+}
+section .txt {
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s all;
+}
+section.on .txt {
+  font-size: 100px;
+  opacity: 1;
+}
+section .page03 {
+  background: url(./assets/images/img01.jpg) no-repeat center/fixed;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비구조할당 실습</title>
+</head>
+
+<body>
+    <input name='content' id='BTN'>
+    <button onclick="changeInput()">click</button>
+    <ul id="TXT"></ul>
+    <ul id="result"></ul>
+
+    <script>
+        // input 테그에 담겨있는 값을 가져와서 html로 추가하기...
+        const BTN = document.querySelector('#BTN');
+        const TXT = document.querySelector('#TXT');
+        const RESULT = document.querySelector('#result');
+        let VAL;
+        let DATA = [];
+        BTN.onchange = e => {
+            //e.target 의 property 를 비구조 할당.
+            const { name, value } = e.target;
+            VAL = value;
+        }
+
+        const changeInput = () => {
+            (VAL && VAL.length > 3) && (console.log(VAL), TXT.innerHTML += '<li>' + VAL + '</li>');
+            (VAL && VAL.length > 3) && (DATA = [...DATA, VAL]);
+            console.log(DATA);
+            const R = DATA.map(el => el.innerHTML = '<li>' + el + '</li>').join('');
+            RESULT.innerHTML = R;
+        }
+
+        //changeInput();
+    </script>
+</body>
+
+</html>

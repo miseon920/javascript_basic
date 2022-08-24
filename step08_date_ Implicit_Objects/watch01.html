@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시계</title>
+    <style>
+      .clock {
+        width: 500px;
+        height: 500px;
+        background: brown;
+        border-radius: 50%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .clock > * {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform-origin: bottom center;
+      }
+      .clock strong {
+        /*시*/
+        width: 20px;
+        height: 150px;
+        background: #000;
+        /* transform: translate(-50%) rotate(45deg); */
+      }
+      .clock em {
+        /*분*/
+        width: 10px;
+        height: 180px;
+        background: #222;
+        /* transform: translate(-50%) rotate(45deg); */
+      }
+      .clock span {
+        /*초*/
+        width: 4px;
+        height: 200px;
+        background: red;
+        /* transform: translate(-50%) rotate(45deg); */
+      }
+      .date {
+        text-align: center;
+        padding: 50px 0;
+        font-size: 21px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="date"></div>
+    <div class="clock">
+      <strong></strong>
+      <em></em>
+      <span></span>
+    </div>
+    <script>
+      const print = document.querySelector(".clock");
+      const today_date = document.querySelector(".date");
+      const hourElement = document.querySelector(".clock strong");
+      const minuteElement = document.querySelector(".clock em");
+      const secondElement = document.querySelector(".clock span");
+
+      const date_f = () => {
+        const date = new Date();
+        const week = ["일", "월", "화", "수", "목", "금", "토"];
+
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let days = week[date.getDay()];
+        //console.log(days);
+        let hour = date.getHours(); //12
+        let minute = date.getMinutes(); //60
+        let second = date.getSeconds(); //60
+        //console.log(second);
+
+        let real_hour = (360 / 12) * hour;
+        let real_minute = (360 / 60) * minute;
+        let real_second = (360 / 60) * second;
+        //console.log(real_second);
+        hourElement.style.transform = `translate(-50%) rotate(${real_hour}deg)`;
+        minuteElement.style.transform = `translate(-50%) rotate(${real_minute}deg)`;
+        secondElement.style.transform = `translate(-50%) rotate(${real_second}deg)`;
+
+        today_date.innerHTML = `${year}년 ${month}월 ${day}일 ${days}요일 ${hour}시 ${minute}분 ${second}초`;
+      };
+      setInterval(date_f, 1000);
+    </script>
+  </body>
+</html>

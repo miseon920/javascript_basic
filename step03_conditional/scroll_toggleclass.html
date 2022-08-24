@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습02-스크롤시toggleClass</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .section {
+        display: table;
+        height: 50vh;
+        width: 100%;
+      }
+
+      .section h2 {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        text-align: center;
+      }
+
+      .section.on h2 {
+        transition: 0.5s;
+        color: #f00;
+      }
+
+      .section:nth-child(odd) {
+        background: #f1f1f1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <section class="section content01">
+        <h2>content01</h2>
+      </section>
+      <section class="section content02">
+        <h2>content02</h2>
+      </section>
+      <section class="section content03">
+        <h2>content03</h2>
+      </section>
+      <section class="section content04">
+        <h2>content04</h2>
+      </section>
+      <section class="section content05">
+        <h2>content05</h2>
+      </section>
+    </div>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script>
+      // $('.section').each(function (idx) {
+      //     var _this = $(this);
+      //     var _thisTop = _this.offset().top;
+      //     $(window).on('scroll', function () {
+      //         var sct = $(window).scrollTop();
+      //         sct > (_thisTop - 200) ? _this.addClass('on') : _this.removeClass('on')
+      //     })
+      // })
+      window.addEventListener("DOMContentLoaded", () => {
+        const EACH_SECTION = document.querySelectorAll(".section");
+        EACH_SECTION.forEach((el) => {
+          window.addEventListener("scroll", () => {
+            let sct = window.scrollY;
+            sct > el.offsetTop - 200
+              ? el.classList.add("on")
+              : el.classList.remove("on");
+            sct === 0 && el.classList.remove("on");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

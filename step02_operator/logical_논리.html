@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>논리연산자</title>
+  </head>
+  <body>
+    <script>
+      let t_Boolean = true; //true 값을 가짐
+      let f_Boolean = false;
+      const a = "mi_suuun";
+      //const a = "";
+
+      console.log(t_Boolean);
+      console.log(!t_Boolean); //not 부정연산자
+
+      console.log(!f_Boolean, !t_Boolean);
+      console.log(t_Boolean && f_Boolean, t_Boolean && t_Boolean);
+      //and(그리고 연산자)
+      //참,거짓을 비교할때 둘중하나라도 거짓이면 거짓 / 참참일때만 true 반환
+
+      console.log(f_Boolean || t_Boolean, f_Boolean || f_Boolean);
+      //or(또는 연산자)
+      //참이 하나라도 있으면 참
+
+      t_Boolean ? console.log("참") : console.log("거짓");
+
+      if (t_Boolean) {
+        console.log("참");
+      } else {
+        console.log("거짓");
+      }
+      a && console.log(a + "참"); //const a = "mi_suuun"; 실행
+      a || console.log("거짓"); //const a = ""; 실행
+
+      !a || console.log("거짓");
+
+      /*
+       #리액트에서 사용시
+        const test = () => {
+            return a ? <h2>meet u</h2> : <h2>back</h2>;
+        };
+        */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 03 - 비구조할당</title>
+  </head>
+
+  <body>
+    <p></p>
+    <script>
+      // 비구조할당... javascript 구조분해 할당.
+      /*
+      구조 분해 할당 구문은 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식입니다.
+      */
+
+      const 걍객체 = {
+        name: "이창훈",
+        age: 10,
+        nickname: "잼민이",
+      };
+
+      const { age, name } = 걍객체;
+
+      console.log(걍객체.nickname);
+    </script>
+  </body>
+</html>

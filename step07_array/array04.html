@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열 04</title>
+  </head>
+  <body>
+    <ul id="UL"></ul>
+    <script>
+      //indeOffh index 반환하기
+      const array = ["일", "이", "삼", "사", "오"];
+      const array2 = [10, 28, 4, 38, 6, 45];
+
+      const idx = array.indexOf("삼"); //삼 값의 index 번호 반환
+
+      console.log(idx);
+
+      const idx2 = array.includes("사"); //includes() 메서드는 배열이 특정 요소를 포함하고 있는지 판별
+      console.log(idx2); //Boolean값으로 반환됨, true
+
+      const find = array.find((el) => el === "오"); //find() 메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다. 그런 요소가 없다면 undefined를 반환합니다.
+      console.log(find);
+
+      const find2 = array2.find((el) => el > 12); //12보다 큰 첫번째 수만 반환 - 따라서 28반환
+      console.log(find2);
+
+      const find3 = array2.filter((el) => el > 12);
+      //filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환합니다.
+      console.log(find3); //[28, 38, 45]
+
+      /*배열자르기*/
+      const arry_s = array.slice(0, 2); // 자르기 시작할 인덱스번호 , 자를갯수
+      console.log(arry_s); //['일', '이']
+
+      /*배열 순서바꾸기*/
+      const arry_r = [...array].reverse(); // ...을 쓰면 나열해줌
+      console.log(arry_r);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>산술연산자</title>
+  </head>
+  <body>
+    <pre>
+        #연산자
+        1.대입연산자 +,+=
+        2.산술연산자 + = / * %
+        3.논리연산자 !(not 연산자),&&,||
+        4.비교연산자 - == ===(값,type도 같음/ Boolean 값) > < 
+        5.증감연산자 a++,++a, a--,--a
+    </pre>
+    <script>
+      let a = 1;
+      let b = 2;
+      let A = "1";
+      let B = "2";
+      const d = "mi_suuun";
+
+      console.log(a + b);
+      let C = A + B;
+      console.log(C, typeof C);
+
+      let E = a + A; //숫자 + 문자 = 문자 , NaN이 뜰수도 있음
+      console.log(E); //자동 형변환이 일어남 - 추후에 typescript를 배우는 이유
+
+      console.log(a - b, A - B); //숫자로 바뀜, 자동 형변환 _ 자스특징
+      console.log(a - B, B - a, A * B, A / B, 1 / 0, b % b);
+
+      let F = 10;
+      let G = 3;
+      //나머지값
+      console.log(F % 2, b % a);
+      //F로 나누어서 나머지값이 2 , b로 나누어서 나머지 값이 a
+
+      F % 2 ? console.log("홀수") : console.log("짝수");
+    </script>
+  </body>
+</html>
