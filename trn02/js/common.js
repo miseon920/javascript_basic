@@ -111,7 +111,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   //img map
-  //const map_box = document.querySelector("#image_map");
   const map_area = document.querySelectorAll("#image_map area");
   map_area.forEach((el, idx) => {
     //console.log(el);
@@ -133,6 +132,27 @@ window.addEventListener("DOMContentLoaded", () => {
   //$("map").imageMapResize();
   function win_w() {
     const win_width = document.documentElement.clientWidth;
+    const map_box = document.querySelector("#image_map");
+    const real_img = document.querySelector(".real_map");
+    const map_area = document.querySelectorAll("#image_map area");
+    //console.log(map_area.length);
+    let arr = [];
+    let toggle = true;
+    let idx = 0;
+
+    if (win_width < 1025) {
+      for (i = 0; i < map_area.length; i++) {
+        //console.log(map_area[i]);
+        const name = map_area[i].getAttribute("data-id");
+        arr.push(name);
+      }
+      timer = setInterval(function () {
+        idx++;
+        idx == map_area.length ? "" : console.log(i, arr[idx], idx);
+      }, 1000);
+    } else {
+      //clearInterval(mob_map);
+    }
   }
   win_w();
   window.addEventListener("resize", function () {
