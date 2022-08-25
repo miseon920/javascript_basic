@@ -1,22 +1,20 @@
-* {
-  box-sizing: border-box;
+:root {
+  --sc: #666;
+  --mc: #fef100;
 }
+
 body {
-  background-color: #ffe53b;
+  // background-color: #ffe53b;
   height: 100vh;
 }
 
 .blog-slider {
-  width: 95%;
-  position: relative;
-  max-width: 800px;
-  margin: auto;
   background: #fff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 25px;
-  border-radius: 25px;
-  height: 400px;
-  transition: all 0.3s;
+  // box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  // padding: 25px;
+  // border-radius: 25px;
+  // height: 400px;
+  // transition: all 0.3s;
 
   @media screen and (max-width: 992px) {
     max-width: 680px;
@@ -221,6 +219,104 @@ body {
           height: 11px;
           width: 30px;
         }
+      }
+    }
+  }
+}
+
+/*css*/
+.inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+}
+.submenu {
+  display: flex;
+}
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 3;
+  &.on,
+  &:hover {
+    background: #fff;
+    & nav > ul > li > a {
+      color: #000;
+    }
+  }
+  & > .inner {
+    align-items: center;
+  }
+  & nav {
+    margin-left: auto;
+    & > ul {
+      gap: 30px;
+      & > li > a {
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+  }
+  & .submenu {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    left: 0;
+    top: 100%;
+    display: none;
+    padding: 25px 0;
+    & > .inner {
+      gap: 30px;
+    }
+    & h2 {
+      font-size: 35px;
+      font-weight: 500;
+    }
+    & .sub_tit p {
+      padding-top: 20px;
+      & span {
+        display: block;
+        line-height: 1.2;
+        color: var(--sc);
+        font-size: 14px;
+      }
+    }
+    &.on {
+      display: block;
+    }
+    & .sub_real_menu ul li {
+      padding-bottom: 15px;
+    }
+    & .sub_real_menu ul li:last-child {
+      padding-bottom: 0;
+    }
+    & .sub_real_menu ul li a {
+      display: inline-block;
+      font-size: 16px;
+      color: var(--sc);
+      position: relative;
+      z-index: 2;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0px;
+        height: 5px;
+        background: var(--mc);
+        transform: rotate(2deg);
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        z-index: -1;
+      }
+      &:hover::after {
+        width: 100%;
+        transition: 0.5s all;
       }
     }
   }
