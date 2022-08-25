@@ -130,6 +130,15 @@ window.addEventListener("DOMContentLoaded", () => {
     //console.log(map_name);
   });
   //$("map").imageMapResize();
+    /*
+      clearInterval  - 상태 함수를 만들어서 하자!
+      https://aljjabaegi.tistory.com/423
+    */
+    let idx = 0;
+    const GV = { 
+      isPause: false,
+      mob_map: null
+    }
   function win_w() {
     const win_width = document.documentElement.clientWidth;
     const map_box = document.querySelector("#image_map");
@@ -137,25 +146,37 @@ window.addEventListener("DOMContentLoaded", () => {
     const map_area = document.querySelectorAll("#image_map area");
     //console.log(map_area.length);
     let arr = [];
-    let toggle = true;
-    let idx = 0;
-
+    function mob_img() { 
+      if (!GV.isPause) {
+        idx++;
+        if (idx == map_area.length) {
+          idx = 0;
+          real_img.src = './img/map_gw.png';
+        } else {
+          real_img.src = `./img/${ arr[idx] }.png`;
+        }
+        //console.log(idx);
+      }
+    }
     if (win_width < 1025) {
       for (i = 0; i < map_area.length; i++) {
         //console.log(map_area[i]);
         const name = map_area[i].getAttribute("data-id");
         arr.push(name);
       }
-      timer = setInterval(function () {
-        idx++;
-        idx == map_area.length ? "" : console.log(i, arr[idx], idx);
-      }, 1000);
+       GV.isPause = false;
+       GV.mob_map = setInterval(mob_img, 1000);
     } else {
-      //clearInterval(mob_map);
+      idx = 0;
+      clearInterval(GV.mob_map);
+       GV.isPause = true;
     }
   }
   win_w();
   window.addEventListener("resize", function () {
+     idx = 0;
+     clearInterval(GV.mob_map);
+     GV.isPause = true;
     win_w();
   });
 });

@@ -417,7 +417,7 @@ img[usemap] {
   .map::after {
     content: "";
     display: block;
-    background: rgba(0, 0, 0, 0.1);
+    background:transparent;
     position: absolute;
     left: 0;
     top: 0;
