@@ -130,15 +130,15 @@ window.addEventListener("DOMContentLoaded", () => {
     //console.log(map_name);
   });
   //$("map").imageMapResize();
-    /*
+  /*
       clearInterval  - 상태 함수를 만들어서 하자!
       https://aljjabaegi.tistory.com/423
     */
-    let idx = 0;
-    const GV = { 
-      isPause: false,
-      mob_map: null
-    }
+  let idx = 0;
+  const GV = {
+    isPause: false,
+    mob_map: null,
+  };
   function win_w() {
     const win_width = document.documentElement.clientWidth;
     const map_box = document.querySelector("#image_map");
@@ -146,14 +146,14 @@ window.addEventListener("DOMContentLoaded", () => {
     const map_area = document.querySelectorAll("#image_map area");
     //console.log(map_area.length);
     let arr = [];
-    function mob_img() { 
+    function mob_img() {
       if (!GV.isPause) {
         idx++;
         if (idx == map_area.length) {
           idx = 0;
-          real_img.src = './img/map_gw.png';
+          real_img.src = "./img/map_gw.png";
         } else {
-          real_img.src = `./img/${ arr[idx] }.png`;
+          real_img.src = `./img/${arr[idx]}.png`;
         }
         //console.log(idx);
       }
@@ -164,19 +164,19 @@ window.addEventListener("DOMContentLoaded", () => {
         const name = map_area[i].getAttribute("data-id");
         arr.push(name);
       }
-       GV.isPause = false;
-       GV.mob_map = setInterval(mob_img, 1000);
+      GV.isPause = false;
+      GV.mob_map = setInterval(mob_img, 1000);
     } else {
       idx = 0;
       clearInterval(GV.mob_map);
-       GV.isPause = true;
+      GV.isPause = true;
     }
   }
   win_w();
   window.addEventListener("resize", function () {
-     idx = 0;
-     clearInterval(GV.mob_map);
-     GV.isPause = true;
+    idx = 0;
+    clearInterval(GV.mob_map);
+    GV.isPause = true;
     win_w();
   });
 });
@@ -184,8 +184,9 @@ function change_img(name, img, num) {
   const real_img = document.querySelector(".real_map");
   const map_tit = document.querySelector(".map_txt h3 span");
   const map_num = document.querySelector(".map_txt strong");
+  const result = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   real_img.src = img;
   map_tit.innerText = name;
-  map_num.innerText = num;
+  map_num.innerText = result;
   //console.log(img);
 }
