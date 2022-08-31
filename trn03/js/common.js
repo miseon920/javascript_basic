@@ -79,3 +79,146 @@ function change_img(name, img, num) {
   map_num.innerText = num;
   //console.log(img);
 }
+$(function () {
+  $.fn.iOverScript = function (o) {
+    o = $.extend(
+      {
+        btns: "",
+        bg: "",
+        speed: 700,
+      },
+      o || {}
+    );
+
+    var e = $(this);
+
+    e.on("mouseenter", o.btns, function (event) {
+      var idx = $(o.btns).index($(this));
+      point_ray("on", idx, event);
+      imgMove("on", idx);
+    });
+    e.on("mouseleave", o.btns, function (event) {
+      var idx = $(o.btns).index($(this));
+      point_ray("off", idx, event);
+      imgMove("off", idx);
+    });
+
+    function point_ray(directions, nums, event) {
+      e.find(o.btns).each(function (index) {
+        if (nums == index) {
+          w = $(this).width();
+          h = $(this).height();
+          (x =
+            (event.pageX - $(this).offset().left - w / 2) *
+            (w > h ? h / w : 1)),
+            (y =
+              (event.pageY - $(this).offset().top - h / 2) *
+              (h > w ? w / h : 1)),
+            (direction =
+              Math.round((Math.atan2(y, x) * (180 / Math.PI) + 180) / 90 + 3) %
+              4);
+
+          if (directions == "on") {
+            $(this).find(o.bg).show();
+            if (direction == 0) {
+              $(this).find(o.bg).css({ top: -h, left: 0 });
+            } else if (direction == 1) {
+              $(this).find(o.bg).css({ top: 0, left: w });
+            } else if (direction == 2) {
+              $(this).find(o.bg).css({ top: h, left: 0 });
+            } else {
+              $(this).find(o.bg).css({ top: 0, left: -w });
+            }
+            $(this)
+              .find(o.bg)
+              .stop()
+              .animate({ top: 0, left: 0 }, o.speed, "easeOutExpo");
+          } else if (directions == "off") {
+            if (direction == 0) {
+              $(this)
+                .find(o.bg)
+                .stop()
+                .animate(
+                  { top: -h, left: 0 },
+                  o.speed,
+                  "easeOutExpo",
+                  function () {
+                    $(this).parent().find(o.bg).hide();
+                  }
+                );
+            } else if (direction == 1) {
+              $(this)
+                .find(o.bg)
+                .stop()
+                .animate(
+                  { top: 0, left: w },
+                  o.speed,
+                  "easeOutExpo",
+                  function () {
+                    $(this).parent().find(o.bg).hide();
+                  }
+                );
+            } else if (direction == 2) {
+              $(this)
+                .find(o.bg)
+                .stop()
+                .animate(
+                  { top: h, left: 0 },
+                  o.speed,
+                  "easeOutExpo",
+                  function () {
+                    $(this).parent().find(o.bg).hide();
+                  }
+                );
+            } else {
+              $(this)
+                .find(o.bg)
+                .stop()
+                .animate(
+                  { top: 0, left: -w },
+                  o.speed,
+                  "easeOutExpo",
+                  function () {
+                    $(this).parent().find(o.bg).hide();
+                  }
+                );
+            }
+          }
+        }
+      });
+    }
+
+    function imgMove(directions, nums) {
+      if ($("html").hasClass("main")) {
+        if (nums == 1) {
+          var map = e.find(o.bg).find(".img");
+          if (directions == "on") {
+            TweenMax.staggerTo(
+              map,
+              4,
+              {
+                left: "-100%",
+                repeat: 10,
+                repeatDelay: 0,
+                yoyo: true,
+                ease: Linear.easeNone,
+              },
+              0.25
+            );
+          } else {
+            TweenMax.killTweensOf(map);
+            map.css("left", "0");
+          }
+        }
+      }
+    }
+  };
+  //[e] Img Over Script
+  // 플러그인 이미지(bg 움직임) 오버
+  const real_a = $(".recipe .content .con_left");
+  $(real_a).iOverScript({
+    btns: ".ray", // 이벤트 class
+    bg: ".bg_l", // 활성화 class
+    speed: 500, // 속도
+  });
+});

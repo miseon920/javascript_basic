@@ -15,6 +15,8 @@
       rel="stylesheet"
     />
     <!--https://fonts.google.com/icons?selected=Material+Icons-->
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/jquery.easing.min.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
     <script src="./js/common.js"></script>
   </head>
@@ -322,69 +324,69 @@
             <div class="content flex">
               <div class="con_left flex">
                 <ul>
-                  <li>
+                  <li class="ray cont">
                     <a href="">
-                      <div class="bg_txt ray">
+                      <div class="bg_txt">
                         <dl class="tit">
                           <dt>비빔만두</dt>
                           <dd>
                             <img src="./img/recipe01.png" alt="" />
                           </dd>
                         </dl>
-                        <div class="bg_l">
-                          <div class="bg_inner">
-                            <ul>
-                              <li>만두</li>
-                              <li>야식</li>
-                            </ul>
-                          </div>
+                      </div>
+                      <div class="bg_l item01">
+                        <div class="bg_inner">
+                          <ul>
+                            <li>만두</li>
+                            <li>야식</li>
+                          </ul>
                         </div>
                       </div>
                     </a>
                   </li>
-                  <li>
+                  <li class="ray cont">
                     <a href="">
-                      <div class="bg_txt ray">
+                      <div class="bg_txt">
                         <dl class="tit">
                           <dt>카레 토마토솥밥</dt>
                           <dd>
                             <img src="./img/recipe02.png" alt="" />
                           </dd>
                         </dl>
-                        <div class="bg_l">
-                          <div class="bg_inner">
-                            <ul>
-                              <li>#토마토</li>
-                              <li>#솥밥</li>
-                              <li>#카레</li>
-                              <li>#건강</li>
-                            </ul>
-                          </div>
+                      </div>
+                      <div class="bg_l item02">
+                        <div class="bg_inner">
+                          <ul>
+                            <li>#토마토</li>
+                            <li>#솥밥</li>
+                            <li>#카레</li>
+                            <li>#건강</li>
+                          </ul>
                         </div>
                       </div>
                     </a>
                   </li>
                 </ul>
                 <ul>
-                  <li>
+                  <li class="ray cont">
                     <a href="">
-                      <div class="bg_txt ray">
+                      <div class="bg_txt">
                         <dl class="tit">
                           <dt>순두부 열라면</dt>
                           <dd>
                             <img src="./img/recipe02.png" alt="" />
                           </dd>
                         </dl>
-                        <div class="bg_l">
-                          <div class="bg_inner">
-                            <ul>
-                              <li>#순두부</li>
-                              <li>#열라면</li>
-                              <li>#역주행</li>
-                              <li>#매운맛</li>
-                              <li>#화끈</li>
-                            </ul>
-                          </div>
+                      </div>
+                      <div class="bg_l item03">
+                        <div class="bg_inner">
+                          <ul>
+                            <li>#순두부</li>
+                            <li>#열라면</li>
+                            <li>#역주행</li>
+                            <li>#매운맛</li>
+                            <li>#화끈</li>
+                          </ul>
                         </div>
                       </div>
                     </a>
@@ -408,32 +410,36 @@
           </div>
         </div>
         <div class="blog-slider__item swiper-slide event">
-          <div class="sec_tit">
+          <div class="sec_tit inner">
             <h2>오뚜기 이벤트</h2>
             <p>오뚜기 스토리를 소개합니다.</p>
           </div>
           <div class="content">
             <div class="tab_top">
-              <div class="js-marquee">
-                <span df-banner-clone=""><img src="./img/visual01.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/visual02.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/visual03.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/visual01.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/visual02.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/visual03.jpg" /></span>
+              <div class="js-marquee on">
+                <div class="flex">
+                  <span><img src="./img/visual01.jpg" /></span>
+                  <span><img src="./img/visual02.jpg" /></span>
+                  <span><img src="./img/visual03.jpg" /></span>
+                  <span><img src="./img/visual01.jpg" /></span>
+                  <span><img src="./img/visual02.jpg" /></span>
+                  <span><img src="./img/visual03.jpg" /></span>
+                </div>
               </div>
-              <div class="js-marquee">
-                <span df-banner-clone=""><img src="./img/con0201.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/con0202.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/con0203.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/con0201.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/con0202.jpg" /></span>
-                <span df-banner-clone=""><img src="./img/con0203.jpg" /></span>
+              <div class="js-marquee flex">
+                <div class="flex">
+                  <span><img src="./img/con0201.jpg" /></span>
+                  <span><img src="./img/con0202.jpg" /></span>
+                  <span><img src="./img/con0203.jpg" /></span>
+                  <span><img src="./img/con0201.jpg" /></span>
+                  <span><img src="./img/con0202.jpg" /></span>
+                  <span><img src="./img/con0203.jpg" /></span>
+                </div>
               </div>
             </div>
-            <div class="tab_menu">
+            <div class="tab_menu inner">
               <ul>
-                <li>
+                <li class="on">
                   <h3>마라삼계탕</h3>
                   <p>
                     <span>말복을 위한 특별 레시피 얼큰 마라 삼계탕</span>

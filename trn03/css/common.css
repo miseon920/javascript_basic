@@ -407,7 +407,7 @@ header .submenu .sub_real_menu ul li a:hover::after {
   text-align: center;
 }
 .recipe .content .con_left {
-  width: calc(100% - 320px);
+  width: calc(100% - 400px);
 }
 .recipe .content .con_left > ul {
   flex: 1;
@@ -419,41 +419,204 @@ header .submenu .sub_real_menu ul li a:hover::after {
 .recipe .content .con_left > ul:first-child > li:first-child {
   border-bottom: 1px solid #dfdfdf;
 }
-.recipe .content .con_left > ul:last-child li {
+.recipe .content .con_left > ul:last-child > li {
   width: 100%;
   height: 100%;
 }
-.recipe .content .con_left > ul a {
+.recipe .content .con_left > ul li {
+  overflow: hidden;
+  position: relative;
+}
+.recipe .content .con_left > ul li a {
   display: inline-flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
   padding: 30px;
-  position: relative;
+  overflow: hidden;
 }
-.recipe .content .con_left > ul a .bg_l {
+.recipe .content .con_left > ul li a .tit dt {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.recipe .content .con_left > ul li a .tit img {
+  max-width: 100%;
+}
+.recipe .content .con_left > ul li a .bg_l {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   left: 0;
   top: 0;
+  background-position: center;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  display: none;
+  overflow: hidden;
+}
+.recipe .content .con_left > ul li a .bg_l.item01 {
+  background: url(../img/visual01.jpg);
+}
+.recipe .content .con_left > ul li a .bg_l.item02 {
+  background: url(../img/visual02.jpg);
+}
+.recipe .content .con_left > ul li a .bg_l.item03 {
+  background: url(../img/visual03.jpg);
+}
+.recipe .content .con_left > ul li a .bg_l .bg_inner {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.recipe .content .con_left > ul li a .bg_l .bg_inner li {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 25px;
+  color: #777;
+  padding: 5px 20px 7px;
+  border: 1px solid #c1c1c1;
+  background: #fff;
+  border-radius: 50px;
+  margin: 5px;
 }
 .recipe .content .con_right {
   position: relative;
-  padding-bottom: 47%;
-  max-width: 320px;
+  max-width: 400px;
   width: 100%;
-  background: url(../img/tip_bg.jpg) no-repeat center center/cover;
+  background: url(../img/tip_bg.jpg) no-repeat center center/100% 100%;
 }
 .recipe .content .con_right a {
   display: block;
   position: absolute;
-  width: 100%;
+  inset: 50px;
+  text-align: left;
+}
+.recipe .content .con_right a span {
+  display: block;
+}
+.recipe .content .con_right a h2 {
+  font-size: 33px;
+  color: #fff;
+  font-weight: normal;
+  line-height: 1.2;
+}
+.recipe .content .con_right a p {
+  color: #fff;
+  margin-top: 20px;
+  line-height: 1.2;
+}
+
+.event {
+  flex-direction: column;
+  justify-content: center;
+}
+.event .tab_top {
+  background: #f3f1eb;
+  overflow: hidden;
+  position: relative;
+}
+.event .tab_top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30%;
   height: 100%;
+  left: 0;
+  background: linear-gradient(to right, #f3f1eb 0%, transparent 30%);
+  z-index: 1;
+}
+.event .tab_top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  right: 0;
+  background: linear-gradient(to left, #f3f1eb 0%, transparent 30%);
+  z-index: 1;
+}
+.event .tab_top .js-marquee {
+  display: none;
+  height: 500px;
+  overflow: hidden;
+}
+.event .tab_top .js-marquee::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 140px;
+  background: url(../img/event_topbg.png) repeat-x center top;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  left: 0;
+  right: 0;
+}
+.event .tab_top .js-marquee::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 140px;
+  background: url(../img/event_bottombg.png) repeat-x center bottom;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  left: 0;
+  right: 0;
+}
+.event .tab_top .js-marquee > div {
+  float: left;
+  gap: 30px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 40s linear infinite;
+}
+.event .tab_top .js-marquee span {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.event .tab_top .js-marquee span:nth-child(odd) {
+  transform: rotate(-20deg);
+}
+.event .tab_top .js-marquee span:nth-child(even) {
+  transform: rotate(20deg);
+}
+.event .tab_top .js-marquee.on {
+  display: block;
+}
+.event .tab_menu ul li {
+  display: none;
+  text-align: center;
+}
+.event .tab_menu ul li h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.event .tab_menu ul li p {
+  font-size: 18px;
+  color: var(--sc);
+  padding: 15px 0 30px;
+}
+.event .tab_menu ul li p span {
+  display: block;
+}
+.event .tab_menu ul li a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  padding: 15px 25px;
+  border-radius: 60px;
+  border: 2px solid #000;
+  display: inline-block;
+  text-align: center;
+}
+.event .tab_menu ul li.on {
+  display: block;
 }
 
 @keyframes rotate {
@@ -465,6 +628,16 @@ header .submenu .sub_real_menu ul li a:hover::after {
   }
   100% {
     transform: translateY(10px);
+  }
+}
+@keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
