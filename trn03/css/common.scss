@@ -363,6 +363,7 @@ header {
   }
   & .swiper-slide {
     // width: 70% !important;
+    padding: 0 30px;
     max-width: 950px;
     // position: relative;
     // padding-bottom: 25%;
@@ -667,22 +668,21 @@ header {
         right: 0;
       }
       & > div {
-        float: left;
         gap: 30px;
         flex: 0 0 auto;
         white-space: nowrap;
-        overflow: hidden;
-        animation: marquee 40s linear infinite;
-      }
-      & span {
-        display: inline-block;
-        overflow: hidden;
-        border-radius: 50%;
-        &:nth-child(odd) {
-          transform: rotate(-20deg);
-        }
-        &:nth-child(even) {
-          transform: rotate(20deg);
+        position: relative;
+        & span {
+          display: inline-flex;
+          overflow: hidden;
+          border-radius: 50%;
+          animation: marquee 5s linear infinite;
+          &:nth-child(odd) {
+            transform: rotate(-20deg);
+          }
+          &:nth-child(even) {
+            transform: rotate(20deg);
+          }
         }
       }
       &.on {
@@ -720,6 +720,10 @@ header {
     }
   }
 }
+.footer {
+  flex-direction: column;
+  justify-content: center;
+}
 
 @keyframes rotate {
   0% {
@@ -734,11 +738,18 @@ header {
 }
 @keyframes marquee {
   0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-r {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

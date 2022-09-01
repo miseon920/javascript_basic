@@ -29,13 +29,14 @@ window.addEventListener("DOMContentLoaded", () => {
       el: ".swiper-pagination",
       clickable: true,
     },
+    //slidesPerView: "auto",
     slidesPerView: 2,
     centeredSlides: true,
     loop: true,
-    spaceBetween: 60,
-    slideToClickedSlide: true,
-    //loop: true,
-    loopAdditionalSlides: 1, // 슬라이드 반복 시 마지막 슬라이드에서 다음 슬라이드가 보여지지 않는 현상 수정
+    // spaceBetween: 60,
+    //slideToClickedSlide: true,
+    loop: true,
+    //loopAdditionalSlides: 1, // 슬라이드 반복 시 마지막 슬라이드에서 다음 슬라이드가 보여지지 않는 현상 수정
     // Navigation arrows
     // navigation: {
     //   nextEl: ".swiper-button-next",
@@ -68,6 +69,23 @@ window.addEventListener("DOMContentLoaded", () => {
         //alert(this.realIndex);//현재 인덱스
       },
     },
+  });
+
+  const tab_b = document.querySelectorAll(".tab_top .js-marquee");
+  const tab_m = document.querySelector(".tab_menu ul");
+  const tab_menu = [...tab_m.children];
+  tab_b.forEach((ele, idx) => {
+    ele.addEventListener("click", () => {
+      console.log(idx);
+      tab_b.forEach((el) => {
+        el.classList.add("on");
+      });
+      ele.classList.remove("on");
+      tab_menu.forEach((el) => {
+        el.classList.add("on");
+      });
+      tab_menu[idx].classList.remove("on");
+    });
   });
 });
 function change_img(name, img, num) {
