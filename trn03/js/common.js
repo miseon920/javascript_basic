@@ -87,16 +87,27 @@ window.addEventListener("DOMContentLoaded", () => {
       tab_menu[idx].classList.remove("on");
     });
   });
+  const menu_li = document.querySelectorAll("header nav > ul > li");
+  const menu_a = document.querySelectorAll("header nav > ul > li>a");
+  const menu_smenu = document.querySelectorAll("header .submenu");
+  menu_a.forEach((el, idx) => {
+    el.addEventListener("mouseenter", function (e) {
+      menu_li.forEach((ele) => {
+        ele.classList.remove("on");
+      });
+      this.parentElement.classList.add("on");
+      e.preventDefault();
+    });
+  });
+  menu_smenu.forEach((el) => {
+    el.addEventListener("mouseleave", function (e) {
+      menu_li.forEach((ele) => {
+        ele.classList.remove("on");
+      });
+    });
+  });
 });
-function change_img(name, img, num) {
-  const real_img = document.querySelector(".real_map");
-  const map_tit = document.querySelector(".map_txt h3 span");
-  const map_num = document.querySelector(".map_txt strong");
-  real_img.src = img;
-  map_tit.innerText = name;
-  map_num.innerText = num;
-  //console.log(img);
-}
+
 $(function () {
   $.fn.iOverScript = function (o) {
     o = $.extend(

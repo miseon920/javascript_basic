@@ -154,6 +154,7 @@ header {
   width: 100%;
   padding: 15px;
   border-bottom: 1px solid #dfdfdf;
+  background: #fff;
   z-index: 3;
 }
 header h1 a {
@@ -178,23 +179,30 @@ header nav > ul > li > a {
 header nav > ul > li.on > a, header nav > ul > li > a:hover {
   color: var(--mc);
 }
+header nav > ul > li.on > a + .submenu {
+  height: 150px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  transition: 0.5s all;
+}
 header .submenu {
   position: absolute;
   width: 100%;
   background: #fff;
   left: 0;
   top: 100%;
-  display: none;
-  padding: 25px 0;
+  height: 0;
+  margin-top: 1px;
+  overflow: hidden;
 }
 header .submenu > .inner {
   gap: 30px;
   position: relative;
+  padding: 30px 0;
 }
 header .submenu > .inner::after {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 50px;
   content: "";
   display: inline-block;
   width: 70px;
@@ -443,7 +451,7 @@ header .submenu .sub_real_menu ul li a:hover::after {
   margin-bottom: 20px;
 }
 .recipe .content .con_left > ul li a .tit img {
-  max-width: 100%;
+  max-width: 80%;
 }
 .recipe .content .con_left > ul li a .bg_l {
   position: absolute;
@@ -622,6 +630,61 @@ header .submenu .sub_real_menu ul li a:hover::after {
 .footer {
   flex-direction: column;
   justify-content: center;
+  justify-content: flex-end;
+}
+.footer .banner {
+  background: url(../img/banner.jpg) no-repeat center bottom/cover;
+  width: 100%;
+  padding: 100px 0;
+}
+.footer .banner .sec_tit {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.footer .banner .sec_tit span {
+  display: block;
+  text-shadow: 1px 1px 1px #000;
+}
+.footer .banner .sec_tit span:first-child {
+  font-size: 45px;
+}
+.footer .banner .sec_tit a {
+  display: inline-block;
+  border: 1px solid #333;
+  background: #333;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 7px 30px;
+  margin-top: 30px;
+}
+.footer footer {
+  width: 100%;
+}
+.footer footer .foot_top {
+  border-bottom: 1px solid #dfdfdf;
+}
+.footer footer .foot_top .inner {
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+.footer footer .foot_top .inner ul li {
+  display: inline-block;
+  padding-right: 10px;
+}
+.footer footer .foot_top .inner ul li a {
+  display: inline-block;
+}
+.footer footer .con_bot {
+  padding: 30px 0;
+}
+.footer footer .con_bot .company_info {
+  padding-top: 15px;
+  line-height: 1.4;
 }
 
 @keyframes rotate {

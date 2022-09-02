@@ -230,6 +230,7 @@ header {
   width: 100%;
   padding: 15px;
   border-bottom: 1px solid #dfdfdf;
+  background: #fff;
   z-index: 3;
   & h1 a {
     display: block;
@@ -259,6 +260,12 @@ header {
       & > li > a:hover {
         color: var(--mc);
       }
+      & > li.on > a + .submenu {
+        height: 150px;
+        // border-top: 1px solid #dfdfdf;
+        box-shadow: 3px 3px 3px rgb(0 0 0 / 25%);
+        transition: 0.5s all;
+      }
     }
   }
   & .submenu {
@@ -267,15 +274,18 @@ header {
     background: #fff;
     left: 0;
     top: 100%;
-    display: none;
-    padding: 25px 0;
+    // display: none;
+    height: 0;
+    margin-top: 1px;
+    overflow: hidden;
     & > .inner {
       gap: 30px;
       position: relative;
+      padding: 30px 0;
       &::after {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 50px;
         content: "";
         display: inline-block;
         width: 70px;
@@ -535,7 +545,7 @@ header {
               margin-bottom: 20px;
             }
             & img {
-              max-width: 100%;
+              max-width: 80%;
             }
           }
 
@@ -723,6 +733,61 @@ header {
 .footer {
   flex-direction: column;
   justify-content: center;
+  justify-content: flex-end;
+  & .banner {
+    background: url(../img/banner.jpg) no-repeat center bottom/cover;
+    width: 100%;
+    padding: 100px 0;
+    & .sec_tit {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      & span {
+        display: block;
+        text-shadow: 1px 1px 1px #000;
+        &:first-child {
+          font-size: 45px;
+        }
+      }
+      & a {
+        display: inline-block;
+        border: 1px solid #333;
+        background: #333;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: normal;
+        padding: 7px 30px;
+        margin-top: 30px;
+      }
+    }
+  }
+  & footer {
+    width: 100%;
+    & .foot_top {
+      border-bottom: 1px solid #dfdfdf;
+      & .inner {
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        & ul li {
+          display: inline-block;
+          padding-right: 10px;
+          & a {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    & .con_bot {
+      padding: 30px 0;
+      & .company_info {
+        padding-top: 15px;
+        line-height: 1.4;
+      }
+    }
+  }
 }
 
 @keyframes rotate {
