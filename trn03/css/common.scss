@@ -1,3 +1,5 @@
+@import "response";
+
 :root {
   --sc: #666;
   --mc: #fef100;
@@ -172,20 +174,20 @@ body {
     top: 50%;
     bottom: auto !important;
     transform: translateY(-50%);
-    @media screen and (max-width: 768px) {
-      transform: translateX(-50%);
-      left: 50% !important;
-      top: 205px;
-      width: 100% !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    // @media screen and (max-width: 768px) {
+    //   transform: translateX(-50%);
+    //   left: 50% !important;
+    //   top: 205px;
+    //   width: 100% !important;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
     &.swiper-pagination-bullets .swiper-pagination-bullet {
       margin: 8px 0;
-      @media screen and (max-width: 768px) {
-        margin: 0 5px;
-      }
+      // @media screen and (max-width: 768px) {
+      //   margin: 0 5px;
+      // }
     }
 
     .swiper-pagination-bullet {
@@ -202,10 +204,10 @@ body {
         height: 30px;
         box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
 
-        @media screen and (max-width: 768px) {
-          height: 11px;
-          width: 30px;
-        }
+        // @media screen and (max-width: 768px) {
+        //   height: 11px;
+        //   width: 30px;
+        // }
       }
     }
   }
@@ -213,7 +215,8 @@ body {
 
 /*css*/
 .inner {
-  max-width: 1200px;
+  max-width: 1230px;
+  padding: 0 15px;
   width: 100%;
   margin: 0 auto;
 }
@@ -585,6 +588,9 @@ header {
                 background: #fff;
                 border-radius: 50px;
                 margin: 5px;
+                &:last-child {
+                  margin-right: 0;
+                }
               }
             }
           }
@@ -661,7 +667,7 @@ header {
         background: url(../img/event_topbg.png) repeat-x center top;
         position: absolute;
         top: 0;
-        z-index: 10;
+        z-index: 2;
         left: 0;
         right: 0;
       }
@@ -673,7 +679,7 @@ header {
         background: url(../img/event_bottombg.png) repeat-x center bottom;
         position: absolute;
         bottom: 0;
-        z-index: 10;
+        z-index: 2;
         left: 0;
         right: 0;
       }
@@ -705,7 +711,7 @@ header {
     text-align: center;
     & h3 {
       font-size: 32px;
-      font-weight: 700;
+      font-weight: 500;
     }
     & p {
       font-size: 18px;
@@ -770,7 +776,7 @@ header {
       & .inner {
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
+        padding: 15px;
         & ul li {
           display: inline-block;
           padding-right: 10px;
@@ -781,7 +787,7 @@ header {
       }
     }
     & .con_bot {
-      padding: 30px 0;
+      padding: 30px 15px;
       & .company_info {
         padding-top: 15px;
         line-height: 1.4;
@@ -816,5 +822,292 @@ header {
   }
   to {
     transform: translateX(0);
+  }
+}
+
+/*반응형위한곳*/
+.m_bt {
+  display: none;
+}
+@include desktop {
+}
+@include tablet {
+  body.on {
+    overflow: hidden;
+  }
+  body.on::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .m_bt {
+    display: block;
+    position: absolute;
+    right: 15px;
+    z-index: 10;
+    cursor: pointer;
+    & span:last-child {
+      display: none;
+    }
+    &.on span {
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+  header {
+    padding: 10px 15px;
+    & > .inner {
+      justify-content: center;
+      & h1 {
+        position: relative;
+        z-index: 10;
+        & a img {
+          width: 50px;
+        }
+      }
+      & nav {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: calc(100% - 100px);
+        height: 100%;
+        background: #fff;
+        border-left: 1px solid #dfdfdf;
+        padding: 80px 30px 0;
+        z-index: 5;
+        transition: 0.5s all;
+        & > ul {
+          flex-direction: column;
+          & > li.on > a + .submenu {
+            box-shadow: none;
+            height: auto;
+          }
+        }
+        &.on {
+          right: 0;
+        }
+      }
+    }
+    & .submenu {
+      position: static;
+      & > .inner {
+        flex-direction: column;
+        &::after {
+          display: none;
+        }
+        & .sub_tit {
+          display: none;
+        }
+      }
+    }
+  }
+  .visual_slider {
+    & .swiper-slide {
+      padding: 0 15px;
+      .visual_txt {
+        padding: 0 30px;
+        & h2 {
+          font-size: 35px;
+        }
+        & strong {
+          font-size: 16px;
+        }
+        & a {
+          font-size: 14px;
+        }
+      }
+    }
+    & .swiper-pagination {
+      & .swiper-pagination-bullet {
+        width: 40px;
+        height: 4px;
+      }
+    }
+  }
+  .new_product .content ul {
+    gap: 10px;
+    & li {
+      width: calc(33.33% - 10px);
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+  }
+  .event {
+    & .tab_top .js-marquee {
+      height: 400px;
+    }
+  }
+  .footer {
+    & .banner {
+      padding: 50px 0;
+    }
+  }
+}
+@include mobile {
+  body {
+    height: auto;
+  }
+  .blog-slider {
+    height: auto;
+    & > .swiper-wrapper {
+      flex-direction: column;
+      transform: unset;
+      & .blog-slider__item {
+        height: auto;
+      }
+    }
+  }
+  .visual_slider {
+    & .swiper-slide {
+      padding: 0;
+    }
+  }
+  .blog-slider__item {
+    padding-top: 20px;
+    &.visual {
+      padding-top: 70px;
+    }
+  }
+  .sec_tit {
+    padding: 30px 15px;
+    flex-direction: column;
+    & h2 {
+      font-size: 25px;
+    }
+    & p {
+      font-size: 16px;
+      padding-left: 0;
+      padding-top: 10px;
+    }
+  }
+  .new_product .content ul {
+    & li {
+      width: calc(50% - 10px);
+      // &:nth-child(n + 5) {
+      //   display: none;
+      // }
+      & a .img_bg {
+        width: 120px;
+        & .img_inner {
+          width: 100%;
+          height: 120px;
+          & img {
+            height: 120px;
+          }
+        }
+      }
+      & a h3 {
+        padding: 10px 0;
+        font-size: 15px;
+      }
+      & a strong {
+        font-size: 13px;
+      }
+    }
+  }
+  .recipe {
+    & .content {
+      gap: 0;
+      & > div {
+        width: 50% !important;
+        max-width: none;
+        &.con_left {
+          flex-direction: column;
+          & ul {
+            border: 0;
+            & li {
+              border: 0 !important;
+              & a {
+                padding: 0;
+                & .tit img {
+                  max-width: 50%;
+                }
+                & .bg_l {
+                  top: 0 !important;
+                  left: 0 !important;
+                  display: block !important;
+                  & .bg_inner li {
+                    font-size: 13px;
+                    line-height: 1;
+                    padding: 5px 5px 7px;
+                    margin: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.con_right a {
+          inset: 15px;
+          & h2 {
+            font-size: 21px;
+          }
+          & p {
+            font-size: 14px;
+          }
+          & span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .event {
+    & .js-marquee {
+      height: 350px;
+    }
+    & .tab_menu ul li {
+      & h3 {
+        font-size: 25px;
+      }
+      & p {
+        font-size: 16px;
+        padding: 15px 0;
+      }
+      & a {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+    }
+  }
+  .footer {
+    font-size: 14px;
+    & .banner {
+      & .sec_tit {
+        text-align: left;
+        align-items: baseline;
+        & span {
+          &:first-child {
+            font-size: 30px;
+          }
+        }
+        & a {
+          font-size: 14px;
+          margin-top: 15px;
+        }
+      }
+    }
+    & footer .foot_top .inner ul.sns {
+      position: fixed;
+      right: 0;
+      bottom: 70px;
+      z-index: 3;
+      & li {
+        display: block;
+        padding-right: 0;
+        padding-bottom: 10px;
+      }
+    }
   }
 }
